@@ -15,9 +15,9 @@ const isLogin = require('../authGuard/isLogin');
 router.get('/products', shopController.getIndex);
 
 //登入狀態下才會執行這些controllers
-router.get('/cart', isLogin, shopController.getCart);
-router.post('/cart-add-item', isLogin, shopController.postCartAddItem);
-router.post('/cart-delete-item', isLogin, shopController.postCartDeleteItem);
+router.get('/cart', shopController.getCart);//, isLogin
+router.post('/cart-add-item', shopController.postCartAddItem);//, isLogin
+router.post('/cart-delete-item', shopController.postCartDeleteItem);//, isLogin
 
 //匯出模組
 module.exports = router;
